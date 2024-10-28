@@ -1,3 +1,5 @@
+import React from "react";
+
 interface Pokemon {
 	name: string;
 	imgSrc?: string;
@@ -9,28 +11,21 @@ interface NavBarProps {
 	pokemonList: Pokemon[];
 }
 
-function App() {
-	const [pokemonIndex, setPokemonIndex] = useState(0);
-	const handleClickPrevious = () => {
-		if (pokemonIndex > 0) {
-			setPokemonIndex(pokemonIndex - 1);
-		}
-	};
-	const handleClickNext = () => {
-		if (pokemonIndex < pokemonList.length - 1) {
-			setPokemonIndex(pokemonIndex + 1);
-		}
-	};
-
+const NavBar: React.FC<NavBarProps> = ({
+	pokemonIndex,
+	setPokemonIndex,
+	pokemonList,
+}) => {
 	return (
-		<div>
-			<button type="button" onClick={handleClickPrevious}>
-				Précédent
-			</button>
-			<button type="button" onClick={handleClickNext}>
-				Suivant
-			</button>
+		<div className="navbar">
+			{}
+			{pokemonList.map((pokemon, index) => (
+				<button key={pokemon.name} onClick={() => setPokemonIndex(index)}>
+					{pokemon.name}
+				</button>
+			))}
 		</div>
 	);
-}
+};
+
 export default NavBar;

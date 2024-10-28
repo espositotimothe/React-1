@@ -39,7 +39,7 @@ function App() {
 			<NavBar
 				pokemonIndex={pokemonIndex}
 				setPokemonIndex={setPokemonIndex}
-				totalPokemons={pokemonList.length}
+				pokemonList={pokemonList}
 			/>
 		</div>
 	);
